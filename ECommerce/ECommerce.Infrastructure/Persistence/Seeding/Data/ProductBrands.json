@@ -1,0 +1,51 @@
+[
+  {
+    "Id": "1a2b3c4d-0001-0001-0001-000000000001",
+    "Name": "Illy",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "1a2b3c4d-0001-0001-0001-000000000002",
+    "Name": "Lavazza",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "1a2b3c4d-0001-0001-0001-000000000005",
+    "Name": "Kicking Horse",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "1a2b3c4d-0001-0001-0001-000000000006",
+    "Name": "Blue Bottle",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "1a2b3c4d-0001-0001-0001-000000000007",
+    "Name": "Abu Auf",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "1a2b3c4d-0001-0001-0001-000000000008",
+    "Name": "Cafe do Brasil",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "1a2b3c4d-0001-0001-0001-000000000009",
+    "Name": "Programmer Coffee",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  }
+]
