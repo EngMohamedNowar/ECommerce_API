@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+namespace ECommerce.Infrastructure.Persistence.Seeding.Data.Models;
 
-namespace ECommerce.Infrastructure.Persistence.Seeding.Data.Models
+public sealed class ProductTypeSeedData
 {
-    public record ProductTypeSeedData(Guid Id, string Name);
-
+    public Guid Id { get; set; }
+    public string Name { get; set; } = null!;
 }

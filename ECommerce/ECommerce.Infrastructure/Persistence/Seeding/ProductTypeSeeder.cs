@@ -14,6 +14,6 @@ namespace ECommerce.Infrastructure.Persistence.Seeding
 
         public async Task SeedAsync(CancellationToken ct = default)
             => await JsonSeeder.SeedIfEmpty<ProductType, ProductTypeSeedData>
-                (dbContext.ProductTypes, "ProductBrands.json", r => ProductType.Create(r.Id, r.Name));
+                (dbContext.ProductTypes, "ProductTypes.json", r => ProductType.Create(r.Id, r.Name));
     }
 }
