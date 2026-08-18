@@ -15,6 +15,8 @@ public class Product : BaseEntity
     public Guid ProductTypeId { get; private set; }
     public ProductType ProductType { get; private set; } = null!;
 
+    private Product() { }
+
     private Product(
         string name,
         string description,
