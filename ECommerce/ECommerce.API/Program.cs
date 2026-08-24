@@ -1,30 +1,34 @@
 using ECommerce.API;
 using ECommerce.Infrastructure;
+using ECommerce.Infrastructure.Data.DbContexts;
 using ECommerce.Infrastructure.Persistence.Seeding;
 using ECommerce.UseCases;
-
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddPresentaion();
+builder.Services.AddPresentation();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-
 await using var scope = app.Services.CreateAsyncScope();
-var dbSeed = scope.ServiceProvider.GetRequiredService<DatabaseSeeder>();
 
+var dbContext = scope.ServiceProvider.GetRequiredService<StoreDbContext>();
+await dbContext.Database.MigrateAsync();
+
+var dbSeed = scope.ServiceProvider.GetRequiredService<DatabaseSeeder>();
 await dbSeed.SeedAll();
 
-app.Run();
+app.UseExceptionHandler();
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+if (app.Environment.IsDevelopment())
 {
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.MapControllers();
+
+app.Run();

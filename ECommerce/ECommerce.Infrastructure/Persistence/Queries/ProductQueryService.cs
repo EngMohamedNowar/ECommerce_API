@@ -8,19 +8,19 @@ namespace ECommerce.Infrastructure.Persistence.Queries;
 
 public class ProductQueryService(StoreDbContext dbContext) : IProductQueryService
 {
-    public async Task<IReadOnlyList<GelAllProductsResponse>> GelAllProductsAsync(CancellationToken ct = default)
+    public async Task<IReadOnlyList<GetAllProductsResponse>> GetAllProductsAsync(CancellationToken ct = default)
     {
         return await dbContext.Products
             .AsNoTracking()
-            .ProjectToType<GelAllProductsResponse>()
+            .ProjectToType<GetAllProductsResponse>()
             .ToListAsync(ct);
     }
 
-    public async Task<GetProductByIdResponse?> GetProductByIdResponse(Guid Id, CancellationToken ct = default)
+    public async Task<GetProductByIdResponse?> GetProductByIdAsync(Guid id, CancellationToken ct = default)
     {
         return await dbContext.Products
             .AsNoTracking()
-            .Where(p => p.Id == Id)
+            .Where(p => p.Id == id)
             .ProjectToType<GetProductByIdResponse>()
             .FirstOrDefaultAsync(ct);
     }

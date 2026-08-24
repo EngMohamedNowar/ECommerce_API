@@ -1,13 +1,10 @@
 ﻿using ECommerce.Domain.Entities;
-using ECommerce.Infrastructure.Persistence.Interceptors;
 using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.Infrastructure.Data.DbContexts;
 
 public class StoreDbContext(
-    DbContextOptions<StoreDbContext> options,
-    AuditableEntityInterceptor auditableEntityInterceptor,
-    SoftDeleteInterceptor softDeleteInterceptor)
+    DbContextOptions<StoreDbContext> options)
     : DbContext(options)
 {
     public DbSet<Product> Products => Set<Product>();
@@ -19,13 +16,5 @@ public class StoreDbContext(
         modelBuilder.UsePropertyAccessMode(PropertyAccessMode.Field);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(StoreDbContext).Assembly);
         base.OnModelCreating(modelBuilder);
-    }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder
-            .AddInterceptors(auditableEntityInterceptor, softDeleteInterceptor);
-
-        base.OnConfiguring(optionsBuilder);
     }
 }

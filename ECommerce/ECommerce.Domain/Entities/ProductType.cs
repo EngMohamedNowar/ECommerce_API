@@ -7,17 +7,17 @@ public class ProductType : BaseEntity
     public string Name { get; private set; } = null!;
     public ICollection<Product> Products { get; private set; } = [];
 
-    private ProductType(string name)
+    private ProductType(Guid id, string name) : base(id)
     {
         Name = name;
     }
 
-    public static ProductType Create(Guid Id,string name)
+    public static ProductType Create(Guid id, string name)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new DomainException("Product type name is required");
 
-        return new ProductType(name);
+        return new ProductType(id, name);
     }
 
     public void Rename(string newName)

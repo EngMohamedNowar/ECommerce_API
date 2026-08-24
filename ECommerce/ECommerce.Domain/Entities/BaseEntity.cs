@@ -13,6 +13,12 @@ public abstract class BaseEntity
         CreatedAt = DateTimeOffset.UtcNow;
     }
 
+    protected BaseEntity(Guid id)
+    {
+        Id = id;
+        CreatedAt = DateTimeOffset.UtcNow;
+    }
+
     public void MarkAsUpdated()
     {
         UpdatedAt = DateTimeOffset.UtcNow;

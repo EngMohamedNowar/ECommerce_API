@@ -2,7 +2,7 @@
 
 namespace ECommerce.API.MiddleWares
 {
-    public class GlobalExceptionMiddleware(IProblemDetailsService problemDetailsService,ILogger logger) : IExceptionHandler
+    public class GlobalExceptionMiddleware(IProblemDetailsService problemDetailsService, ILogger<GlobalExceptionMiddleware> logger) : IExceptionHandler
     {
         public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
         {

@@ -1,13 +1,18 @@
 ﻿using ECommerce.Domain.Common;
 using ECommerce.UseCases.Products.Dtos;
+using MediatR;
 
 namespace ECommerce.UseCases.Products.Queries;
 
-public sealed class GetProductByIdQuery(IProductQueryService productQueryService)
+public sealed record GetProductByIdQuery(Guid Id) : IRequest<Result<GetProductByIdResponse>>;
+
+internal sealed class GetProductByIdHandler(IProductQueryService productQueryService)
+    : IRequestHandler<GetProductByIdQuery, Result<GetProductByIdResponse>>
 {
-    public async Task<Result<GetProductByIdResponse>> ExecuteAsync(Guid id, CancellationToken ct = default)
+    public async Task<Result<GetProductByIdResponse>> Handle(
+        GetProductByIdQuery request, CancellationToken cancellationToken)
     {
-        var product = await productQueryService.GetProductByIdResponse(id, ct);
+        var product = await productQueryService.GetProductByIdAsync(request.Id, cancellationToken);
 
         if (product is null)
             return Result.Failure<GetProductByIdResponse>(

@@ -24,7 +24,7 @@ namespace ECommerce.Infrastructure.Repositories
 
         public Task<int> SaveChangesAsync(CancellationToken ct = default)
         {
-            throw new NotImplementedException();
+            return dbContext.SaveChangesAsync(ct);
         }
     }
 }

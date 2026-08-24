@@ -18,6 +18,26 @@ public class Product : BaseEntity
     private Product() { }
 
     private Product(
+        Guid id,
+        string name,
+        string description,
+        string pictureUrl,
+        decimal price,
+        ProductBrand productBrand,
+        ProductType productType)
+        : base(id)
+    {
+        Name = name;
+        Description = description;
+        PictureUrl = pictureUrl;
+        Price = price;
+        ProductBrand = productBrand;
+        ProductBrandId = productBrand.Id;
+        ProductType = productType;
+        ProductTypeId = productType.Id;
+    }
+
+    private Product(
         string name,
         string description,
         string pictureUrl,
@@ -33,6 +53,39 @@ public class Product : BaseEntity
         ProductBrandId = productBrand.Id;
         ProductType = productType;
         ProductTypeId = productType.Id;
+    }
+
+    public static Result<Product> Create(
+        Guid id,
+        string name,
+        string description,
+        string pictureUrl,
+        decimal price,
+        ProductBrand productBrand,
+        ProductType productType)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            return Result.Failure<Product>(Error.Validation("Product.Name", "اسم المنتج مطلوب."));
+
+        if (price <= 0)
+            return Result.Failure<Product>(Error.Validation("Product.Price", "سعر المنتج لازم يكون أكبر من صفر."));
+
+        if (productBrand is null)
+            return Result.Failure<Product>(Error.Validation("Product.Brand", "ماركة المنتج مطلوبة."));
+
+        if (productType is null)
+            return Result.Failure<Product>(Error.Validation("Product.Type", "نوع المنتج مطلوب."));
+
+        var product = new Product(
+            id,
+            name,
+            description ?? string.Empty,
+            pictureUrl ?? string.Empty,
+            price,
+            productBrand,
+            productType);
+
+        return Result.Success(product);
     }
 
     public static Result<Product> Create(

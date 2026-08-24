@@ -7,17 +7,17 @@ public class ProductBrand : BaseEntity
     public string Name { get; private set; } = null!;
     public ICollection<Product> Products { get; private set; } = [];
 
-    private ProductBrand(string name)
+    private ProductBrand(Guid id, string name) : base(id)
     {
         Name = name;
     }
 
-    public static ProductBrand Create(Guid Id,string Name)
+    public static ProductBrand Create(Guid id, string name)
     {
-        if (string.IsNullOrWhiteSpace(Name))
+        if (string.IsNullOrWhiteSpace(name))
             throw new DomainException("Brand name is required");
 
-        return new ProductBrand(Name);
+        return new ProductBrand(id, name);
     }
 
     public void Rename(string newName)
