@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace ECommerce.Domain.Common;
 
-namespace ECommerce.Domain.Common
+public enum ErrorType
 {
-    public enum ErrorType
-    {
-        Validation = 1,
-        NotFound = 2,
-        Conflict = 3,
-        UnAuthorized = 4,
-        Forbidden = 5,
-        Failure = 6
-    }
+    Validation = 1,
+    NotFound = 2,
+    Conflict = 3,
+    UnAuthorized = 4,
+    Forbidden = 5,
+    Failure = 6
 }

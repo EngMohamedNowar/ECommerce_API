@@ -9,44 +9,43 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ECommerce.Infrastructure
+namespace ECommerce.Infrastructure;
+
+public static class DependencyInjection
 {
-    public static class DependencyInjection
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        services.AddScoped<AuditableEntityInterceptor>();
+        services.AddScoped<SoftDeleteInterceptor>();
+
+        services.AddDbContext<StoreDbContext>((serviceProvider, options) =>
         {
-            services.AddScoped<AuditableEntityInterceptor>();
-            services.AddScoped<SoftDeleteInterceptor>();
+            var auditableInterceptor = serviceProvider.GetRequiredService<AuditableEntityInterceptor>();
+            var softDeleteInterceptor = serviceProvider.GetRequiredService<SoftDeleteInterceptor>();
 
-            services.AddDbContext<StoreDbContext>((serviceProvider, options) =>
-            {
-                var auditableInterceptor = serviceProvider.GetRequiredService<AuditableEntityInterceptor>();
-                var softDeleteInterceptor = serviceProvider.GetRequiredService<SoftDeleteInterceptor>();
+            options.UseSqlServer(
+                configuration.GetConnectionString("DefaultConnection"),
+                sqlOptions =>
+                {
+                    sqlOptions.EnableRetryOnFailure(
+                        maxRetryCount: 5,
+                        maxRetryDelay: TimeSpan.FromSeconds(30),
+                        errorNumbersToAdd: null);
+                })
+                .AddInterceptors(auditableInterceptor, softDeleteInterceptor);
+        });
 
-                options.UseSqlServer(
-                    configuration.GetConnectionString("DefaultConnection"),
-                    sqlOptions =>
-                    {
-                        sqlOptions.EnableRetryOnFailure(
-                            maxRetryCount: 5,
-                            maxRetryDelay: TimeSpan.FromSeconds(30),
-                            errorNumbersToAdd: null);
-                    })
-                    .AddInterceptors(auditableInterceptor, softDeleteInterceptor);
-            });
+        services.AddScoped<IProductQueryService, ProductQueryService>();
+        services.AddScoped<IBrandQueryService, BrandQueryService>();
+        services.AddScoped<ITypeQueryService, TypeQueryService>();
+        services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-            services.AddScoped<IProductQueryService, ProductQueryService>();
-            services.AddScoped<IBrandQueryService, BrandQueryService>();
-            services.AddScoped<ITypeQueryService, TypeQueryService>();
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IDataSeeder, ProductBrandSeeder>();
+        services.AddScoped<IDataSeeder, ProductTypeSeeder>();
+        services.AddScoped<IDataSeeder, ProductSeeder>();
+        services.AddScoped<DatabaseSeeder>();
 
-            services.AddScoped<IDataSeeder, ProductBrandSeeder>();
-            services.AddScoped<IDataSeeder, ProductTypeSeeder>();
-            services.AddScoped<IDataSeeder, ProductSeeder>();
-            services.AddScoped<DatabaseSeeder>();
-
-            return services;
-        }
+        return services;
     }
 }

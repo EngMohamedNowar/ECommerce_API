@@ -1,30 +1,23 @@
-﻿using ECommerce.API.MiddleWares;
-using Microsoft.OpenApi.Models;
+﻿using ECommerce.API.Handlers;
+using ECommerce.API.MiddleWares;
 
-namespace ECommerce.API
+namespace ECommerce.API;
+
+public static class DependencyInjection
 {
-    public static class DependencyInjection
+    public static IServiceCollection AddPresentation(this IServiceCollection services)
     {
-        public static IServiceCollection AddPresentation(this IServiceCollection services)
-        {
-            services.AddControllers()
-                .AddApplicationPart(typeof(DependencyInjection).Assembly);
+        services.AddControllers()
+            .AddApplicationPart(typeof(DependencyInjection).Assembly);
 
-            services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen(options =>
-            {
-                options.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Title = "ECommerce API",
-                    Version = "v1"
-                });
-            });
+        services.AddEndpointsApiExplorer();
 
-            services.AddProblemDetails();
+        services.AddProblemDetails();
+        services.AddSwaggerGen();
 
-            services.AddExceptionHandler<GlobalExceptionMiddleware>();
+        services.AddExceptionHandler<ValidationExceptionHandler>();
+        services.AddExceptionHandler<GlobalExceptionMiddleware>();
 
-            return services;
-        }
+        return services;
     }
 }

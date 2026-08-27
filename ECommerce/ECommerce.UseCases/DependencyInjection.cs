@@ -1,4 +1,6 @@
-﻿using Mapster;
+﻿using ECommerce.UseCases.Behaviors;
+using FluentValidation;
+using Mapster;
 using MapsterMapper;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,8 +17,15 @@ public static class DependencyInjection
         services.AddSingleton(config);
         services.AddScoped<IMapper, ServiceMapper>();
 
+        services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly);
+
         services.AddMediatR(cfg =>
-            cfg.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly));
+        {
+            cfg.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
+            cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
+        });
+
+        services.AddScoped<ProductFilterService>();
 
         return services;
     }
