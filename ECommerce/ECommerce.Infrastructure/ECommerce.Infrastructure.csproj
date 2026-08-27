@@ -22,6 +22,7 @@
     <PackageReference Include="Mapster" Version="10.0.11" />
     <PackageReference Include="Mapster.DependencyInjection" Version="10.0.11" />
     <PackageReference Include="MediatR" Version="14.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.11">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -32,6 +33,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="10.0.11" />
+    <PackageReference Include="Stripe.net" Version="52.4.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.6.1" />
   </ItemGroup>
 
   <ItemGroup>
