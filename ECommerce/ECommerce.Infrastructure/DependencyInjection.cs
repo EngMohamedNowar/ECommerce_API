@@ -1,5 +1,5 @@
 ﻿using ECommerce.Domain.Repositories;
-using ECommerce.Infrastructure.Data.DbContexts;
+using ECommerce.Infrastructure.Persistence.DbContexts;
 using ECommerce.Infrastructure.Persistence.Interceptors;
 using ECommerce.Infrastructure.Persistence.Queries;
 using ECommerce.Infrastructure.Persistence.Seeding;

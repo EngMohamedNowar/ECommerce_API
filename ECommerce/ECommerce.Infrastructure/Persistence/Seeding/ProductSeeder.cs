@@ -1,5 +1,5 @@
 using ECommerce.Domain.Entities;
-using ECommerce.Infrastructure.Data.DbContexts;
+using ECommerce.Infrastructure.Persistence.DbContexts;
 using ECommerce.Infrastructure.Persistence.Seeding.Data;
 using ECommerce.Infrastructure.Persistence.Seeding.Data.Models;
 

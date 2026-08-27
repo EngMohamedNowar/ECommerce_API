@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace ECommerce.Infrastructure.Persistence.Seeding;
 
-namespace ECommerce.Infrastructure.Persistence.Seeding
+public interface IDataSeeder
 {
-    public interface IDataSeeder
-    {
-        int Order { get; }
-        Task SeedAsync(CancellationToken ct = default);
-    }
+    int Order { get; }
+    Task SeedAsync(CancellationToken ct = default);
 }
