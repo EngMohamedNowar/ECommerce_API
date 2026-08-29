@@ -7,8 +7,11 @@ using ECommerce.Infrastructure.Persistence.Queries;
 using ECommerce.Infrastructure.Persistence.Seeding;
 using ECommerce.Infrastructure.Repositories;
 using ECommerce.Infrastructure.Security;
+using ECommerce.Infrastructure.Payments;
 using ECommerce.UseCases.Auth.Contracts;
 using ECommerce.UseCases.Basket.Contracts;
+using ECommerce.UseCases.Payments.Commands;
+using ECommerce.UseCases.Payments.Contracts;
 using ECommerce.UseCases.Products;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -55,8 +58,11 @@ public static class DependencyInjection
             .AddEntityFrameworkStores<StoreDbContext>();
 
         services.Configure<AuthOptions>(configuration.GetSection(AuthOptions.SectionName));
+        services.Configure<StripeOptions>(configuration.GetSection(StripeOptions.SectionName));
 
         services.AddScoped<IAuthTokenService, JwtProvider>();
+        services.AddScoped<IStripePaymentIntentGateway, StripePaymentIntentGateway>();
+        services.AddScoped<IPaymentService, StripePaymentService>();
 
         services.AddScoped<IProductQueryService, ProductQueryService>();
         services.AddScoped<IBrandQueryService, BrandQueryService>();

@@ -1,6 +1,8 @@
 using ECommerce.Domain.Common;
 using ECommerce.UseCases.Orders.Dtos;
 using ECommerce.UseCases.Payments.Contracts;
+using ECommerce.UseCases.Auth.Contracts;
+
 using MediatR;
 
 namespace ECommerce.UseCases.Payments.Commands;
