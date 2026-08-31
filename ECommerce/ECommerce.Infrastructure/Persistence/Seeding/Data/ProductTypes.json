@@ -1,0 +1,72 @@
+[
+  {
+    "Id": "2b3c4d5e-0002-0002-0002-000000000001",
+    "Name": "Arabica Beans",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "2b3c4d5e-0002-0002-0002-000000000002",
+    "Name": "Robusta Beans",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "2b3c4d5e-0002-0002-0002-000000000003",
+    "Name": "Ground Coffee",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "2b3c4d5e-0002-0002-0002-000000000004",
+    "Name": "Whole Beans",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "2b3c4d5e-0002-0002-0002-000000000005",
+    "Name": "Espresso Blend",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "2b3c4d5e-0002-0002-0002-000000000006",
+    "Name": "Decaf Coffee",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "2b3c4d5e-0002-0002-0002-000000000007",
+    "Name": "Instant Coffee",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "2b3c4d5e-0002-0002-0002-000000000008",
+    "Name": "Turkish Coffee",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "2b3c4d5e-0002-0002-0002-000000000009",
+    "Name": "Coffee Pods & Capsules",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  },
+  {
+    "Id": "2b3c4d5e-0002-0002-0002-000000000010",
+    "Name": "Flavored Coffee",
+    "CreatedAt": "2024-01-01T00:00:00Z",
+    "UpdatedAt": null,
+    "IsDeleted": false
+  }
+]

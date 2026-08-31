@@ -1,0 +1,150 @@
+Using launch settings from D:\ECommerce_API\ECommerce\ECommerce.API\Properties\launchSettings.json...
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Migrations[20411]
+      Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      DECLARE @result int;
+      EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+      SELECT @result
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+      BEGIN
+          CREATE TABLE [__EFMigrationsHistory] (
+              [MigrationId] nvarchar(150) NOT NULL,
+              [ProductVersion] nvarchar(32) NOT NULL,
+              CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+          );
+      END;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+info: Microsoft.EntityFrameworkCore.Migrations[20405]
+      No migrations were applied. The database is already up to date.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      DECLARE @result int;
+      EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+      SELECT @result
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+      FROM [AspNetRoles] AS [a]
+      WHERE [a].[NormalizedName] = @normalizedName
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@normalizedName='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+      FROM [AspNetRoles] AS [a]
+      WHERE [a].[NormalizedName] = @normalizedName
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+      FROM [AppUsers] AS [a]
+      WHERE [a].[NormalizedEmail] = @normalizedEmail
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [ProductBrands] AS [p]) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [ProductTypes] AS [p]) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [Products] AS [p]) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [DeliveryMethods] AS [d]) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTimeOffset), @p2='?' (Size = 100), @p3='?' (Size = 300), @p4='?' (DbType = Boolean), @p5='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p6='?' (Size = 100), @p7='?' (DbType = DateTimeOffset), @p8='?' (DbType = Guid), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 100), @p11='?' (Size = 300), @p12='?' (DbType = Boolean), @p13='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p14='?' (Size = 100), @p15='?' (DbType = DateTimeOffset), @p16='?' (DbType = Guid), @p17='?' (DbType = DateTimeOffset), @p18='?' (Size = 100), @p19='?' (Size = 300), @p20='?' (DbType = Boolean), @p21='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p22='?' (Size = 100), @p23='?' (DbType = DateTimeOffset), @p24='?' (DbType = Guid), @p25='?' (DbType = DateTimeOffset), @p26='?' (Size = 100), @p27='?' (Size = 300), @p28='?' (DbType = Boolean), @p29='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p30='?' (Size = 100), @p31='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      INSERT INTO [DeliveryMethods] ([Id], [CreatedAt], [DeliveryTime], [Description], [IsDeleted], [Price], [ShortName], [UpdatedAt])
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7),
+      (@p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15),
+      (@p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23),
+      (@p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31);
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5079
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: D:\ECommerce_API\ECommerce\ECommerce.API
+warn: LuckyPennySoftware.MediatR.License[0]
+      You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@normalizedEmail='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[DisplayName], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+      FROM [AppUsers] AS [a]
+      WHERE [a].[NormalizedEmail] = @normalizedEmail
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT [r].[Id], [r].[CreatedAt], [r].[ExpiresAt], [r].[IsDeleted], [r].[IsRevoked], [r].[RevokedAt], [r].[TokenHash], [r].[UpdatedAt], [r].[UserId]
+      FROM [RefreshTokens] AS [r]
+      WHERE [r].[UserId] = @userId AND [r].[IsRevoked] = CAST(0 AS bit) AND [r].[ExpiresAt] > CAST(SYSUTCDATETIME() AS datetimeoffset)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@userId='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SELECT [a0].[Name]
+      FROM [AspNetUserRoles] AS [a]
+      INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+      WHERE [a].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@p3='?' (DbType = Guid), @p0='?' (DbType = Boolean), @p1='?' (DbType = DateTimeOffset), @p2='?' (DbType = DateTimeOffset), @p4='?' (DbType = Guid), @p5='?' (DbType = DateTimeOffset), @p6='?' (DbType = DateTimeOffset), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 128), @p11='?' (DbType = DateTimeOffset), @p12='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+      SET NOCOUNT ON;
+      UPDATE [RefreshTokens] SET [IsRevoked] = @p0, [RevokedAt] = @p1, [UpdatedAt] = @p2
+      OUTPUT 1
+      WHERE [Id] = @p3;
+      INSERT INTO [RefreshTokens] ([Id], [CreatedAt], [ExpiresAt], [IsDeleted], [IsRevoked], [RevokedAt], [TokenHash], [UpdatedAt], [UserId])
+      VALUES (@p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [d].[Id], [d].[CreatedAt], [d].[DeliveryTime], [d].[Description], [d].[IsDeleted], [d].[Price], [d].[ShortName], [d].[UpdatedAt]
+      FROM [DeliveryMethods] AS [d]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@buyerEmail='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [o].[Id], [o].[BuyerEmail], [o].[CreatedAt], [o].[DeliveryMethodId], [o].[IsDeleted], [o].[OrderDate], [o].[PaymentIntentId], [o].[Status], [o].[Subtotal], [o].[UpdatedAt], [o].[ShippingAddress_City], [o].[ShippingAddress_FirstName], [o].[ShippingAddress_LastName], [o].[ShippingAddress_State], [o].[ShippingAddress_Street], [o].[ShippingAddress_ZipCode], [d].[Id], [o0].[Id], [o0].[CreatedAt], [o0].[IsDeleted], [o0].[OrderId], [o0].[Price], [o0].[Quantity], [o0].[UpdatedAt], [o0].[ItemOrdered_PictureUrl], [o0].[ItemOrdered_ProductId], [o0].[ItemOrdered_ProductName], [d].[CreatedAt], [d].[DeliveryTime], [d].[Description], [d].[IsDeleted], [d].[Price], [d].[ShortName], [d].[UpdatedAt]
+      FROM [Orders] AS [o]
+      LEFT JOIN [DeliveryMethods] AS [d] ON [o].[DeliveryMethodId] = [d].[Id]
+      LEFT JOIN [OrderItems] AS [o0] ON [o].[Id] = [o0].[OrderId]
+      WHERE [o].[BuyerEmail] = @buyerEmail
+      ORDER BY [o].[OrderDate] DESC, [o].[Id], [d].[Id]
+fail: ECommerce.Infrastructure.Persistence.Basket.RedisBasketRepository[0]
+      Redis down while reading basket ghost-basket
+      StackExchange.Redis.RedisConnectionException: The message timed out in the backlog attempting to send because no connection became available (1500ms) - Last Connection Exception: It was not possible to connect to the redis server(s). ConnectTimeout, command=HMGET, timeout: 1500, inst: 0, qu: 0, qs: 0, aw: False, bw: CheckingForTimeout, rs: NotStarted, ws: Initializing, in: 0, last-in: 0, cur-in: 0, sync-ops: 0, async-ops: 1, serverEndpoint: localhost:6379, conn-sec: n/a, aoc: 0, mc: 1/1/0, mgr: 10 of 10 available, clientName: ENGMOHAMEDNOWAR(SE.Redis-v2.7.27.49176), IOCP: (Busy=0,Free=1000,Min=1,Max=1000), WORKER: (Busy=1,Free=32766,Min=16,Max=32767), POOL: (Threads=7,QueuedItems=0,CompletedItems=177,Timers=7), v: 2.7.27.49176 (Please take a look at this article for some common client-side issues that can cause timeouts: https://stackexchange.github.io/StackExchange.Redis/Timeouts)
+       ---> StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s). ConnectTimeout
+         --- End of inner exception stack trace ---
+         at Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache.GetAndRefreshAsync(String key, Boolean getData, CancellationToken token)
+         at Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache.GetAsync(String key, CancellationToken token)
+         at Microsoft.Extensions.Caching.Distributed.DistributedCacheExtensions.GetStringAsync(IDistributedCache cache, String key, CancellationToken token)
+         at ECommerce.Infrastructure.Persistence.Basket.RedisBasketRepository.GetBasketAsync(String basketId, CancellationToken ct) in D:\ECommerce_API\ECommerce\ECommerce.Infrastructure\Persistence\Basket\RedisBasketRepository.cs:line 27

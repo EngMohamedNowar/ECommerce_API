@@ -1,0 +1,15 @@
+@host = http://localhost:5076/api
+
+### Get all products
+GET {{host}}/products
+Accept: application/json
+
+### Get all brands
+GET {{host}}/brands
+Accept: application/json
+
+### Get all types
+GET {{host}}/types
+Accept: application/json
+
+###
